@@ -50,9 +50,7 @@ const Header = () => {
       {/* Main Navigation */}
       <header
         className={`sticky top-0 z-50 ${
-          isScrolled
-            ? 'bg-white shadow-md'
-            : 'bg-transparent'
+          isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
         } transition-all duration-200`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,9 +73,7 @@ const Header = () => {
               {navigationConfig.primaryLinks.map((item, index) => (
                 <div key={index} className="relative group">
                   {item.links ? (
-                    <button
-                      className="flex items-center gap-1 text-gray-600 hover:text-gray-900 py-2"
-                    >
+                    <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900 py-2">
                       {item.label}
                       <ChevronDown className="h-4 w-4" />
                     </button>
@@ -120,7 +116,7 @@ const Header = () => {
               ))}
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile Menu Button */}
             <div className="lg:hidden">
               <Button
                 variant="ghost"
@@ -137,10 +133,8 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Mobile menu */}
-        <div
-          className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}
-        >
+        {/* Mobile Menu */}
+        <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
           <div className="bg-white shadow-lg">
             <div className="max-w-7xl mx-auto px-4 py-3">
               {navigationConfig.mobileLinks.map((item, index) => (
