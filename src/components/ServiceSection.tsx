@@ -1,81 +1,82 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { MessageCircle, Users, Lightbulb, Tv, Check } from 'lucide-react';
+import { Calendar, Home, MessageCircle, Clock, Users, Building } from 'lucide-react';
 import Image from 'next/image';
 
-const services = [
+const industries = [
   {
-    title: 'WhatsApp Data Automation',
-    description: 'Streamline your business operations with intelligent WhatsApp automation that handles customer inquiries, appointment bookings, and follow-ups automatically.',
-    icon: MessageCircle,
+    title: 'For Dental Clinics',
+    description: 'Streamline patient bookings and follow-ups with automated WhatsApp communications.',
+    icon: Calendar,
     features: [
-      '24/7 Automated Responses',
-      'Smart Lead Qualification',
-      'Appointment Scheduling',
-      'Custom Workflow Integration'
+      'Automated appointment reminders',
+      'Patient feedback collection',
+      'Treatment follow-ups',
+      '24/7 booking system'
     ],
-    imagePath: '/images/whatsapp-automation.png'
+    benefits: '40% increase in booking rates',
+    imagePath: '/api/placeholder/400/300'
   },
   {
-    title: 'Meta Lead Generation',
-    description: 'Generate high-quality leads through targeted Meta platforms campaigns that connect with your ideal B2B audience.',
-    icon: Users,
+    title: 'For Real Estate',
+    description: 'Handle property inquiries and viewings efficiently with smart automation.',
+    icon: Home,
     features: [
-      'Advanced Audience Targeting',
-      'Lead Scoring System',
-      'Campaign Analytics',
-      'ROI Optimization'
+      'Automated property details',
+      'Viewing scheduler',
+      'Lead qualification',
+      'Instant response system'
     ],
-    imagePath: '/images/lead-generation.png'
+    benefits: '50% faster response time',
+    imagePath: '/api/placeholder/400/300'
+  }
+];
+
+const features = [
+  {
+    title: 'Instant Response',
+    description: 'Never miss an inquiry with 24/7 automated responses',
+    icon: MessageCircle
   },
   {
-    title: 'Creative Strategy',
-    description: 'Develop compelling creative strategies that differentiate your brand and drive meaningful engagement with your target audience.',
-    icon: Lightbulb,
-    features: [
-      'Brand Story Development',
-      'Content Strategy',
-      'Market Research',
-      'Competitor Analysis'
-    ],
-    imagePath: '/images/creative-strategy.png'
+    title: 'Smart Scheduling',
+    description: 'Automated booking system with calendar integration',
+    icon: Clock
   },
   {
-    title: 'TVC Brand Awareness',
-    description: 'Create impactful television commercials that build brand awareness and establish your B2B presence in the Dubai market.',
-    icon: Tv,
-    features: [
-      'Professional Production',
-      'Strategic Placement',
-      'Message Optimization',
-      'Performance Tracking'
-    ],
-    imagePath: '/images/tvc-production.png'
+    title: 'Lead Management',
+    description: 'Qualify and nurture leads automatically',
+    icon: Users
   },
+  {
+    title: 'Business Integration',
+    description: 'Seamless integration with your existing systems',
+    icon: Building
+  }
 ];
 
 const ServiceSection = () => {
   return (
     <div className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Industry Solutions */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Comprehensive B2B Solutions
+            Industry-Specific Solutions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transform your business communication and marketing strategy with our
-            integrated services tailored for the Dubai market.
+            Tailored WhatsApp automation for Dubai's dental and real estate sectors
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          {industries.map((industry, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-2/5 relative h-48 md:h-auto">
                   <Image
-                    src={`/api/placeholder/400/300`}
-                    alt={service.title}
+                    src={industry.imagePath}
+                    alt={industry.title}
                     fill
                     className="object-cover"
                   />
@@ -84,24 +85,46 @@ const ServiceSection = () => {
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="p-2 rounded-lg bg-green-100">
-                        <service.icon className="h-6 w-6 text-green-600" />
+                        <industry.icon className="h-6 w-6 text-green-600" />
                       </div>
-                      <CardTitle>{service.title}</CardTitle>
+                      <CardTitle>{industry.title}</CardTitle>
                     </div>
-                    <p className="text-gray-600">{service.description}</p>
+                    <p className="text-gray-600">{industry.description}</p>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
+                    <ul className="space-y-2 mb-4">
+                      {industry.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <Check className="h-5 w-5 text-green-500" />
+                          <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
                           <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
+                    <div className="mt-4 p-3 bg-green-50 rounded-lg">
+                      <p className="text-green-800 font-medium">
+                        Result: {industry.benefits}
+                      </p>
+                    </div>
                   </CardContent>
                 </div>
               </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+          {features.map((feature, index) => (
+            <Card key={index} className="text-center hover:shadow-md transition-shadow duration-300">
+              <CardHeader>
+                <div className="mx-auto p-3 rounded-full bg-green-100 inline-block mb-4">
+                  <feature.icon className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle className="text-lg">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">{feature.description}</p>
+              </CardContent>
             </Card>
           ))}
         </div>
