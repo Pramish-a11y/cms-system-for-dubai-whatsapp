@@ -1,7 +1,6 @@
-import React from 'react';
-import { Button } from './ui/button';
 import { MessageCircle, ArrowRight, Calendar } from 'lucide-react';
 import Image from 'next/image';
+import { Button } from './ui/button';
 
 const HeroSection = () => {
   return (
@@ -36,7 +35,6 @@ const HeroSection = () => {
             </div>
             <div className="mt-8 flex items-center gap-8">
               <div className="flex -space-x-2">
-                {/* Client logos for Damac, Emaar, etc */}
                 {[1, 2, 3, 4].map((i) => (
                   <div 
                     key={i}
